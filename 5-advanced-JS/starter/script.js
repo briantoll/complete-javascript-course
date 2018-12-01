@@ -234,6 +234,55 @@ c) correct answer (I would use a number for this)
 7. Suppose this code would be a plugin for other programmers to use in their code. So make sure that all your code is private and doesn't interfere with the other programmers code (Hint: we learned a special technique to do exactly that).
 */
 
+(function() {
+  
+  'use strict';
+
+  var Question = function(question, answers, correctAnswer) {
+    this.question = question;
+    this.answers = answers;
+    this.correctAnswer = correctAnswer;
+  }
+
+  Question.prototype.displayQuestion =
+  function() {
+    console.log(this.question);
+    for (var i = 0; i < this.answers.length; i++) {
+      console.log(i + ': ' +this.answers[i]);
+    }
+  }
+
+  Question.prototype.checkAnswer =
+  function(answer) {
+    if (answer === this.correctAnswer) {
+      console.log('Correct!');
+    } else {
+      console.log('Wrong. Try Again');
+    }
+  }
+
+  var question1 = new Question('Question 1', ['Wrong', 'Wrong', 'Correct'], 2);
+  var question2 = new Question('Question 2', ['Wrong', 'Correct', 'Wrong'], 1);
+  var question3 = new Question('Question 3', ['Correct', 'Wrong', 'Wrong'], 0);
+
+  var questions = [question1, question2, question3];
+
+  var questionIndex = Math.floor(Math.random() * questions.length);
+
+  questions[questionIndex].displayQuestion();
+
+  var answer = parseInt(prompt('Enter an answer'));
+
+  questions[questionIndex].checkAnswer(answer);
+
+}());
+
+
+// var brian = new Person('Brian', 1984, 'manager');
+// var jane = new Person('Jane', 1969, 'designer');
+// var mark = new Person('Mark', 1948, 'retired');
+
+
 /*
 --- Expert level ---
 
