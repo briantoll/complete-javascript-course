@@ -1,5 +1,6 @@
-~.DS_Store
 *.DS_Store
+.DS_Store
+**/.DS_Store
 4-DOM-pig-game/.DS_Store
 3-how-JS-works/.DS_Store
 2-JS-basics/.DS_Store
