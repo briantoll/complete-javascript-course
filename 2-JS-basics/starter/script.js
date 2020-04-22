@@ -23,22 +23,22 @@
 
 // var firstName = 'Brian';
 // var age = 34;
-//
+
 // // Type coercion
 // console.log(firstName + ' ' + age);
-//
+
 // var job, isMarried;
 // job = 'Developer';
 // isMarried = false;
-//
+
 // console.log(firstName + ' is a ' + age + ' year old ' + job + '. Is he married? ' + isMarried);
-//
-// // Variable Mutation
-// age = 'thirty four';
+
+// Variable Mutation
+// age = 'thirty six';
 // job = 'Manager';
-//
+
 // alert(firstName + ' is a ' + age + ' year old ' + job + '. Is he married? ' + isMarried);
-//
+
 // var lastName = prompt('What is his last name?');
 // console.log(firstName + ' ' + lastName);
 
@@ -47,13 +47,13 @@
 /*************************************/
 
 // var now, yearBrian, yearKaterina;
-// now = 2018;
-// ageBrian = 34;
-// ageKaterina = 25;
+// now = 2020;
+// ageBrian = 36;
+// ageKaterina = 27;
 //
 // // Math operators
-// yearBrian = now - 34;
-// yearKaterina = now - 25;
+// yearBrian = now - ageBrian;
+// yearKaterina = now - ageKaterina;
 //
 // console.log(yearKaterina);
 //
@@ -76,7 +76,7 @@
 // Operator precedence
 /*************************************/
 
-// var now = 2018;
+// var now = 2020;
 // var yearBrian = 1984;
 // var fullAge = 21;
 //
@@ -84,7 +84,7 @@
 // console.log(isFullAge);
 //
 // var ageBrian = now - yearBrian;
-// var ageKaterina = 25;
+// var ageKaterina = 27;
 // var average = (ageBrian + ageKaterina) / 2;
 // console.log(average);
 //
@@ -187,7 +187,7 @@
 /*******************************************/
 
 // var firstName = 'Brian';
-// var age = 34;
+// var age = 36;
 
 // Ternary Operator
 // age >= 21 ? console.log(firstName + ' drinks beer.') : console.log(firstName + ' drinks juice.');
@@ -243,7 +243,7 @@
 //   console.log('Variable has NOT been defined');
 // }
 //
-// // Equality operators
+// Equality operators
 // if (height == '23') {
 //   console.log('The == operator does type coercion!');
 // }
@@ -304,7 +304,7 @@
 /*************************************/
 
 // function calculateAge(birthYear) {
-//   return 2018 - birthYear;
+//   return 2020 - birthYear;
 // }
 //
 // var ageBrian = calculateAge(1984);
@@ -331,7 +331,7 @@
 // Function declaration
 //function whatDoYouDo(job, firstName) {}
 
-// Function expression
+// Function expression because it produces a result
 // var whatDoYouDo = function(job, firstName) {
 //   switch (job) {
 //     case 'teacher':
@@ -349,6 +349,8 @@
 // console.log(whatDoYouDo('driver', 'Katerina'));
 // console.log(whatDoYouDo('retired', 'Mike'));
 
+
+
 /*************************************/
 // Arrays
 /*************************************/
@@ -360,22 +362,22 @@
 // console.log(names.length);
 //
 // names[1] = 'Chris';
-// names[names.length] = 'David';
+// names[names.length] = 'David'; //Add element to end of array
 // console.log(names);
 // console.log(names.length);
 //
 // var brian = ['Brian', 'Toll', 1984, 'developer', false];
 //
-// brian.push('black');
-// brian.unshift('Mr.');
+// brian.push('black'); //Add element to end of array
+// brian.unshift('Mr.'); //Add element to beginning of array
 // console.log(brian);
 //
 // brian.pop();
-// brian.pop();
-// brian.shift();
+// brian.pop(); // Remove element from end of array
+// brian.shift(); // Remove element from beginning of array
 // console.log(brian);
 //
-// console.log(brian.indexOf(1984));
+// console.log(brian.indexOf(1984)); //returns position of argument in array; returns -1 if argument is not in the array
 //
 // var isDesigner = brian.indexOf('designer') === -1 ? 'Brian is not a designer' : 'Brian is a designer';
 //
@@ -396,16 +398,16 @@
 //   }
 //   return tipPercentage*bill;
 // }
-//
+
 // var bills = [124, 48, 268];
 // var tips = [tipCalculator(bills[0]),
 //             tipCalculator(bills[1]),
 //             tipCalculator(bills[2])];
-//
+
 // var totalBills = [bills[0]+tips[0],
 //                   bills[1]+tips[1],
 //                   bills[2]+tips[2]];
-//
+
 // console.log(tips);
 // console.log(totalBills);
 
@@ -432,7 +434,7 @@
 //
 // var katerina = new Object();
 // katerina.firstName = 'Katerina';
-// katerina.birthYear = 1984;
+// katerina.birthYear = 1992;
 // katerina['lastName'] = 'Patouhas';
 // console.log(katerina);
 
@@ -531,72 +533,72 @@
 // CODING CHALLENGE 5
 /*************************************/
 
-var brian = {
-  fullName: 'Brian Toll',
-  bills: [124, 48, 268, 180, 42],
-  calcTips: function() {
-    this.tips = [];
-    this.finalValues = [];
+// var brian = {
+//   fullName: 'Brian Toll',
+//   bills: [124, 48, 268, 180, 42],
+//   calcTips: function() {
+//     this.tips = [];
+//     this.finalValues = [];
 
-    for (var i = 0; i < this.bills.length; i++) {
-      // Determine percentage based on tipping rules
-      var percentage;
-      var bill = this.bills[i];
+//     for (var i = 0; i < this.bills.length; i++) {
+//       // Determine percentage based on tipping rules
+//       var percentage;
+//       var bill = this.bills[i];
 
-      if (bill < 50) {
-        percentage = .2;
-      } else if (bill >= 50 && bill < 200) {
-        percentage = .15;
-      } else {
-        percentage = .1;
-      }
+//       if (bill < 50) {
+//         percentage = .2;
+//       } else if (bill >= 50 && bill < 200) {
+//         percentage = .15;
+//       } else {
+//         percentage = .1;
+//       }
 
-      // Add results to the corresponding arrays
-      this.tips[i] = bill * percentage;
-      this.finalValues[i] = bill + bill * percentage;
-    }
-  }
-}
+//       // Add results to the corresponding arrays
+//       this.tips[i] = bill * percentage;
+//       this.finalValues[i] = bill + bill * percentage;
+//     }
+//   }
+// }
 
-var katerina = {
-  fullName: 'Katerina Patouhas',
-  bills: [77, 475, 110, 45],
-  calcTips: function() {
-    this.tips = [];
-    this.finalValues = [];
+// var katerina = {
+//   fullName: 'Katerina Patouhas',
+//   bills: [77, 475, 110, 45],
+//   calcTips: function() {
+//     this.tips = [];
+//     this.finalValues = [];
 
-    for (var i = 0; i < this.bills.length; i++) {
-      // Determine percentage based on tipping rules
-      var percentage;
-      var bill = this.bills[i];
+//     for (var i = 0; i < this.bills.length; i++) {
+//       // Determine percentage based on tipping rules
+//       var percentage;
+//       var bill = this.bills[i];
 
-      if (bill < 100) {
-        percentage = .2;
-      } else if (bill >= 100 && bill < 300) {
-        percentage = .1;
-      } else {
-        percentage = .25;
-      }
+//       if (bill < 100) {
+//         percentage = .2;
+//       } else if (bill >= 100 && bill < 300) {
+//         percentage = .1;
+//       } else {
+//         percentage = .25;
+//       }
 
-      // Add results to the corresponding arrays
-      this.tips[i] = bill * percentage;
-      this.finalValues[i] = bill + bill * percentage;
-    }
-  }
-}
+//       // Add results to the corresponding arrays
+//       this.tips[i] = bill * percentage;
+//       this.finalValues[i] = bill + bill * percentage;
+//     }
+//   }
+// }
 
-function calcAverage(tips) {
-  var sum = 0;
-  for (var i = 0; i < tips.length; i++) {
-    sum+=tips[i];
-  }
-  return sum / tips.length;
-}
+// function calcAverage(tips) {
+//   var sum = 0;
+//   for (var i = 0; i < tips.length; i++) {
+//     sum+=tips[i];
+//   }
+//   return sum / tips.length;
+// }
 
-brian.calcTips();
-katerina.calcTips();
+// brian.calcTips();
+// katerina.calcTips();
 
-brian.average = calcAverage(brian.tips);
-katerina.average = calcAverage(katerina.tips);
+// brian.average = calcAverage(brian.tips);
+// katerina.average = calcAverage(katerina.tips);
 
-console.log(brian, katerina);
+// console.log(brian, katerina);

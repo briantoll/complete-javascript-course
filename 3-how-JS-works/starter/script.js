@@ -4,12 +4,12 @@
 //functions
 // caculateAge(1965);
 // function caculateAge(year) {
-//   console.log(2018 - year);
+//   console.log(2020 - year);
 // }
 
-// retirement(1984);
+// retirement(1984); //THIS DOES NOT WORK BECAUSE IT'S A FUNCATION EXPRESSION
 // var retirement =  function(year) {
-//   console.log(65 - (2018 - year));
+//   console.log(65 - (2020 - year));
 // }
 
 
@@ -20,10 +20,10 @@
 //
 // function foo() {
 //   var age = 65;
-//   console.log(age);
+//   console.log(age); // 65 < function context
 // }
 // foo();
-// console.log(age);
+// console.log(age); // 29 < global context
 
 ///////////////////////////////////////
 // Lecture: Scoping
@@ -74,30 +74,30 @@
 //console.log(this);
 // calculateAge(1984);
 // function calculateAge(year) {
-//     console.log(2018 - year);
+//     console.log(2020 - year);
 //     console.log(this);
 // }
 
 
-var john = {
-    name: 'John',
-    yearOfBirth: 1990,
-    calculateAge: function() {
-        console.log(this);
-        console.log(2018 - this.yearOfBirth);
+// var john = {
+//     name: 'John',
+//     yearOfBirth: 1990,
+//     calculateAge: function() {
+//         console.log(this);
+//         console.log(2020 - this.yearOfBirth);
 
-        // function innerFunction() {
-        //     console.log(this);
-        // }
-        // innerFunction();
-    }
-}
-john.calculateAge();
+//         function innerFunction() {
+//             console.log(this);
+//         }
+//         innerFunction();
+//     }
+// }
+// john.calculateAge();
 
 
-var mike = {
-    name: 'Mike',
-    yearOfBirth: 1984
-};
-mike.calculateAge = john.calculateAge;
-mike.calculateAge();
+// var mike = {
+//     name: 'Mike',
+//     yearOfBirth: 1984
+// };
+// mike.calculateAge = john.calculateAge;
+// mike.calculateAge();
