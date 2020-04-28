@@ -158,6 +158,25 @@ var UIController = (function() {
     expensesPercentageLabel: '.item__percentage'
   }
 
+  var formatNumber = function(num, type) {
+    var numSplit, int, dec, type;
+
+    num = Math.abs(num);
+    num = num.toFixed(2);
+
+    numSplit = num.split('.');
+
+    int = numSplit[0];
+    if (int.length > 3) {
+      int = int.substr(0, int.length - 3) + ',' + int.substr(int.length - 3, 3);
+    }
+
+    dec = numSplit[1];
+
+    return (type === 'expense' ? sign = '-' : sign = '+') + ' ' + int + '.' + dec;
+
+  }
+
   return {
     getinput: function() {
       return {
@@ -180,7 +199,7 @@ var UIController = (function() {
       // Replace the placeholder text with actual data
       newHTML = html.replace('%id%',obj.id);
       newHTML = newHTML.replace('%description%',obj.description);
-      newHTML = newHTML.replace('%value%',obj.value);
+      newHTML = newHTML.replace('%value%', formatNumber(obj.value, type));
 
       // Insert the HTML into the DOM
       document.querySelector(element).insertAdjacentHTML('beforeend', newHTML);
@@ -208,10 +227,12 @@ var UIController = (function() {
     },
 
     displayBudget: function(obj) {
+      var type;
+      obj.budget ? type = 'income' : type = 'expense';
 
-      document.querySelector(DOMstrings.budgetLabel).textContent = obj.budget;
-      document.querySelector(DOMstrings.incomeLabel).textContent = obj.totalIncome;
-      document.querySelector(DOMstrings.expensesLabel).textContent = obj.totalExpense;
+      document.querySelector(DOMstrings.budgetLabel).textContent = formatNumber(obj.budget, type);
+      document.querySelector(DOMstrings.incomeLabel).textContent = formatNumber(obj.budget, 'income');
+      document.querySelector(DOMstrings.expensesLabel).textContent = formatNumber(obj.budget, 'expense');
       
       if (obj.percentage > 0) {
         document.querySelector(DOMstrings.percentageLabel).textContent = obj.percentage + '%';
@@ -224,8 +245,6 @@ var UIController = (function() {
     displayPercentages: function(percentages) {
 
       var fields = document.querySelectorAll(DOMstrings.expensesPercentageLabel);
-
-      console.log(fields);
 
       var nodeListForEach = function(list, callback) {
         for (var i = 0; i < list.length; i++) {
@@ -241,7 +260,6 @@ var UIController = (function() {
           current.textContent = '---';
         }
         
-
       });
 
     },
