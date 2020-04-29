@@ -85,24 +85,56 @@
 
 //Lecture: Strings
 
-let firstName = 'Brian';
-let lastName = 'Toll';
-const yearOfBirth = 1984;
-function calcAge(year) {
-    return 2020 - year;
-}
+// let firstName = 'Brian';
+// let lastName = 'Toll';
+// const yearOfBirth = 1984;
+// function calcAge(year) {
+//     return 2020 - year;
+//}
 
 //ES5
-console.log('This is ' + firstName + ' ' + 
-    lastName + '. He was born in ' + 
-    yearOfBirth + '. Today, he is ' + 
-    calcAge(yearOfBirth) + ' years old.');
+// console.log('This is ' + firstName + ' ' + 
+//     lastName + '. He was born in ' + 
+//     yearOfBirth + '. Today, he is ' + 
+//     calcAge(yearOfBirth) + ' years old.');
 
 //ES6 - template literals
-console.log(`This is ${firstName} ${lastName}. He was born in ${yearOfBirth}. Today, he is ${calcAge(yearOfBirth)} years old.`);
+// console.log(`This is ${firstName} ${lastName}. He was born in ${yearOfBirth}. Today, he is ${calcAge(yearOfBirth)} years old.`);
 
-const n = `${firstName} ${lastName}`;
-console.log(n.startsWith('B'));
-console.log(n.endsWith('l'));
-console.log(n.includes('an To'));
-console.log(`${firstName} `.repeat(5));
+// const n = `${firstName} ${lastName}`;
+// console.log(n.startsWith('B'));
+// console.log(n.endsWith('l'));
+// console.log(n.includes('an To'));
+// console.log(`${firstName} `.repeat(5));
+
+
+
+
+//Lecutre: Arrow Functions
+
+const years = [1984, 1992, 1993, 1996];
+
+//ES5
+var ages5 = years.map(function(el) {
+    return 2020 - el;
+});
+console.log(ages5);
+
+
+//ES6
+let ages6 = years.map(el => 2020 - el);
+console.log(ages6);
+
+ages6 = years.map((el, index) => `Age element ${index+1}: ${2020-el}.`);
+console.log(ages6);
+
+ages6 = years.map((el, index) => {
+    const now = new Date().getFullYear();
+    const age = now - el;
+    return `Age element ${index+1}: ${age}.`
+});
+console.log(ages6);
+
+
+
+//Lecture: Lexical 'this' Keyword
