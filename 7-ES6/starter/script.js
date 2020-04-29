@@ -61,20 +61,48 @@
 // Lecture: Blocks and IIFEs
 
 //ES6
-{
-    const a = 1;
-    let b = 2;
+// {
+//     const a = 1;
+//     let b = 2;
     
-    // Not Block scoped so it can be accessed from outside the block
-    var c = 3;
-}
+//     // Not Block scoped so it can be accessed from outside the block
+//     var c = 3;
+// }
 
 //console.log(a + ' ' + b)
-console.log(c);
+// console.log(c);
 
-// ES5 IIFE
-(function() {
-    var c = 3;
-})();
+// // ES5 IIFE
+// (function() {
+//     var c = 3;
+// })();
 
 //console.log(c);
+
+
+
+
+
+//Lecture: Strings
+
+let firstName = 'Brian';
+let lastName = 'Toll';
+const yearOfBirth = 1984;
+function calcAge(year) {
+    return 2020 - year;
+}
+
+//ES5
+console.log('This is ' + firstName + ' ' + 
+    lastName + '. He was born in ' + 
+    yearOfBirth + '. Today, he is ' + 
+    calcAge(yearOfBirth) + ' years old.');
+
+//ES6 - template literals
+console.log(`This is ${firstName} ${lastName}. He was born in ${yearOfBirth}. Today, he is ${calcAge(yearOfBirth)} years old.`);
+
+const n = `${firstName} ${lastName}`;
+console.log(n.startsWith('B'));
+console.log(n.endsWith('l'));
+console.log(n.includes('an To'));
+console.log(`${firstName} `.repeat(5));
